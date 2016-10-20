@@ -4,39 +4,38 @@
   <groupId>com.netcracker.odmg.secondgroup.zoxal.task1</groupId>
   <artifactId>phoneBook</artifactId>
   <packaging>war</packaging>
-  <version>1.1.0</version>
+  <version>1.1.1</version>
   <name>phoneBook Maven Webapp</name>
   <url>http://maven.apache.org</url>
-  <dependencies>
-  
-    <dependency>
-    <groupId>javax.servlet</groupId>
-    <artifactId>javax.servlet-api</artifactId>
-    <version>3.0.1</version>
+  <dependencies>  
+ 	<dependency>
+	    <groupId>javax.servlet</groupId>
+	    <artifactId>javax.servlet-api</artifactId>
+	    <version>3.0.1</version>
 	</dependency>
 	
 	<dependency>
-    <groupId>jstl</groupId>
-    <artifactId>jstl</artifactId>
-    <version>1.2</version>
+	    <groupId>jstl</groupId>
+	    <artifactId>jstl</artifactId>
+	    <version>1.2</version>
 	</dependency>
 	
 	<dependency>
-    <groupId>mysql</groupId>
-    <artifactId>mysql-connector-java</artifactId>
-    <version>5.1.38</version>
+	    <groupId>mysql</groupId>
+	    <artifactId>mysql-connector-java</artifactId>
+	    <version>5.1.38</version>
 	</dependency>
 	
 	<dependency>
-	  <groupId>com.phonebook</groupId>
-	  <artifactId>dataManager</artifactId>
-	  <version>1.1</version>
-	  </dependency>
+		  <groupId>com.phonebook</groupId>
+		  <artifactId>dataManager</artifactId>
+		  <version>1.1</version>
+	</dependency>
   </dependencies>
   
   <build>
     <finalName>phoneBook</finalName>
-  <plugins>
+  	<plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
