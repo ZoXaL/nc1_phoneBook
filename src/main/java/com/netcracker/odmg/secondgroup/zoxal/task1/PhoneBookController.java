@@ -28,7 +28,7 @@ public class PhoneBookController extends HttpServlet {
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String name = request.getParameter("name");
+		String personName = request.getParameter("personName");
 		
 		List<String> names;
 		try {
@@ -39,18 +39,19 @@ public class PhoneBookController extends HttpServlet {
 		}
 		request.setAttribute("names", names);
 		
-		if(name==null) {			
+		if(personName==null) {			
 			request.getRequestDispatcher("/jsp/phoneBook.jsp").forward(request, response);
 			//response.getWriter().append("no name");
 			//return;
 		}else {
 			String phoneNumber;
 			try {
-				phoneNumber = dataManager.getPhoneByName(name);
+				phoneNumber = dataManager.getPhoneByName(personName);
 			}catch(SQLException e) {
 				//logging
 				phoneNumber = "";
 			}
+			request.setAttribute("personName", personName);
 			request.setAttribute("phoneNumber", phoneNumber);
 			request.getRequestDispatcher("/jsp/phoneBook.jsp").forward(request, response);
 		}
