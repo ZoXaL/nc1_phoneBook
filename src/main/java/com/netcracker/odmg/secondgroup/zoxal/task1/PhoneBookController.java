@@ -2,6 +2,7 @@ package com.netcracker.odmg.secondgroup.zoxal.task1;
 
 import java.io.IOException;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -18,13 +19,22 @@ public class PhoneBookController extends HttpServlet {
 	private DataManager dataManager;
 	private static final long serialVersionUID = 1L;
 	
+	@Override
+	public void init(ServletConfig config) throws ServletException{
+		super.init(config);
+		String dbPath = getServletConfig().getInitParameter("DB_PATH");
+		String userLogin = getServletConfig().getInitParameter("DB_USER_LOGIN");
+		String userPassword = getServletConfig().getInitParameter("DB_USER_PASSWORD");
+		try{			
+			dataManager = new DataManager(dbPath,userLogin,userPassword);
+		}catch(SQLException cause) {
+			throw new ServletException("Cannot connect to database", cause);
+		}
+	}
+	
 	public PhoneBookController() throws SQLException{
 		super();
-		try{
-			dataManager = new DataManager();
-		}catch(SQLException cause) {
-			throw new SQLException("Cannot connect to database", cause);
-		}
+		
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -41,8 +51,6 @@ public class PhoneBookController extends HttpServlet {
 		
 		if(personName==null) {			
 			request.getRequestDispatcher("/jsp/phoneBook.jsp").forward(request, response);
-			//response.getWriter().append("no name");
-			//return;
 		}else {
 			String phoneNumber;
 			try {

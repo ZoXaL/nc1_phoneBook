@@ -11,6 +11,18 @@
   	<servlet>
   		<servlet-name>phoneBookServlet</servlet-name>
   		<servlet-class>com.netcracker.odmg.secondgroup.zoxal.task1.PhoneBookController</servlet-class>
+  		<init-param>
+  			<param-name>DB_PATH</param-name>
+  			<param-value>jdbc:mysql://localhost/nc1_phoneBook</param-value>
+  		</init-param>  		
+  		<init-param>
+  			<param-name>DB_USER_LOGIN</param-name>
+  			<param-value>nc1</param-value>
+  		</init-param>
+  		<init-param>
+  			<param-name>DB_USER_PASSWORD</param-name>
+  			<param-value>nc1_phoneBook</param-value>
+  		</init-param>
   	</servlet>  
   	<servlet-mapping>
   	<servlet-name>phoneBookServlet</servlet-name>
@@ -20,4 +32,6 @@
 <welcome-file-list>
   	<welcome-file>index.jsp</welcome-file>
  	</welcome-file-list>
+
+ 	
 </web-app>
