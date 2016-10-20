@@ -10,11 +10,11 @@
   
   	<servlet>
   		<servlet-name>phoneBookServlet</servlet-name>
-  		<servlet-class>com.netcracker.odmg.secondgroup.zoxal.task1.PhoneBookServlet</servlet-class>
+  		<servlet-class>com.netcracker.odmg.secondgroup.zoxal.task1.PhoneBookController</servlet-class>
   	</servlet>  
   	<servlet-mapping>
   	<servlet-name>phoneBookServlet</servlet-name>
-  	<url-pattern>/process</url-pattern>
+  	<url-pattern>/app</url-pattern>
   </servlet-mapping>
 
 <welcome-file-list>
