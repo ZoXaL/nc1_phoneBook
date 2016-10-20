@@ -31,31 +31,27 @@ public class PhoneBookController extends HttpServlet {
 			throw new ServletException("Cannot connect to database", cause);
 		}
 	}
-	
-	public PhoneBookController() throws SQLException{
-		super();
-		
-	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String personName = request.getParameter("personName");
-		
+		String personName = request.getParameter("personName");		
 		List<String> names;
+		
 		try {
 			names = dataManager.getNamesList();
-		}catch(SQLException e) {
+		} catch (SQLException e) {
 			//logging
 			names = new LinkedList<>();
 		}
 		request.setAttribute("names", names);
 		
-		if(personName==null) {			
+		if (personName == null) {			
 			request.getRequestDispatcher("/jsp/phoneBook.jsp").forward(request, response);
-		}else {
-			String phoneNumber;
+		} else {
+			String phoneNumber; 
+			
 			try {
 				phoneNumber = dataManager.getPhoneByName(personName);
-			}catch(SQLException e) {
+			} catch (SQLException e) {
 				//logging
 				phoneNumber = "";
 			}
